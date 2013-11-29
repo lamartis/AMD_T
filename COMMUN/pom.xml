@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.esiag</groupId>
+		<artifactId>COSTransactionProject</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>fr.esiag</groupId>
+	<artifactId>COMMUN</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>COMMUN</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>jacorb</groupId>
+			<artifactId>jacorb</artifactId>
+			<version>3.1</version>
+			<scope>system</scope>
+			<systemPath>C:\jacorb-3.2\lib\jacorb.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jacorb</groupId>
+			<artifactId>jacorb-services</artifactId>
+			<version>3.1</version>
+			<scope>system</scope>
+			<systemPath>C:\jacorb-3.2\lib\jacorb-services.jar</systemPath>
+		</dependency>
+	</dependencies>
+</project>
