@@ -36,8 +36,8 @@ public class TransactionDriver {
 		TransactionCoordination transactionCoordination = transaction.getCoordinator();
 		System.out.println(transactionCoordination);
 		
-		TransactionResource R1 = (TransactionResource) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , 
-				new Class[] {TransactionResource.class}, new MyInvocationHandler());
+		//TransactionResource R1 = (TransactionResource) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , 
+		//		new Class[] {TransactionResource.class}, new MyInvocationHandler());
 		//transactionCoordination.registerResource(R1); 
 		//Ps: l'enregistrement des resources ne se fait pas ici, vu que le TManager qui a toute les resources.
 		//C'est ces resources qui vont être donner au cordinateur.
