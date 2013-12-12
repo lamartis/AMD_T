@@ -9,6 +9,7 @@ import fr.esiag.commun.TransactionResource;
 
 public class TCoordination extends TransactionCoordinationPOA{
 
+	private final int MAX_TRANSACTION = 100;
 	private UUID transactionID;
 	private Set<TransactionResource> resources = 
 			Collections.synchronizedSet(new HashSet<TransactionResource>());
@@ -24,7 +25,7 @@ public class TCoordination extends TransactionCoordinationPOA{
 
 	public TransactionResource[] getResources() {
 		int i = 0;
-		TransactionResource[] tResources = new TransactionResource[3];
+		TransactionResource[] tResources = new TransactionResource[MAX_TRANSACTION];
 		for (TransactionResource transactionResource : resources) {
 			tResources[i++] = transactionResource;
 		}

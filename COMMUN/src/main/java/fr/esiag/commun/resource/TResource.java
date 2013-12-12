@@ -37,11 +37,9 @@ public abstract class TResource extends TransactionResourcePOA implements Runnab
 			
 			// transfert this TransactionResource to transactionManager.
 			TransactionResource transactionResource = TransactionResourceHelper.narrow(rootPOA.id_to_reference(rootPOA.activate_object(this)));
-			new Thread(this).start();
-			
 			transactionManager.registerResource(transactionResource);
 			
-			
+			new Thread(this).start();
 			
 		} catch (Exception e){
 			e.getStackTrace();

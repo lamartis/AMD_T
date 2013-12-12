@@ -1,5 +1,7 @@
 package org.TD;
 
+import java.lang.reflect.Proxy;
+
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
 
@@ -9,6 +11,7 @@ import fr.esiag.commun.TransactionFactory;
 import fr.esiag.commun.TransactionManager;
 import fr.esiag.commun.TransactionManagerHelper;
 import fr.esiag.commun.TransactionResource;
+import fr.esiag.commun.resource.MyInvocationHandler;
 
 public class TransactionDriver {
 
@@ -23,11 +26,7 @@ public class TransactionDriver {
 		// and narrow it 
 		TransactionManager transactionManager = TransactionManagerHelper.narrow(obj);
 		
-		for (TransactionResource resource : transactionManager.getResources()) {
-			System.out.println("dkhal");
-			System.out.println(resource.getIdentifiant().toString());
-		}
-/*		// invoke transactionManager to receive transactionFactory.
+		// invoke transactionManager to receive transactionFactory.
 		TransactionFactory transactionFactory = transactionManager.getTransactionFactory();
 		
 		// invoke transactionFactory to create new Transaction, and retrieve it.
@@ -37,7 +36,8 @@ public class TransactionDriver {
 		TransactionCoordination transactionCoordination = transaction.getCoordinator();
 		System.out.println(transactionCoordination);
 		
-		//TransactionResource R1 = Proxy ...
+		TransactionResource R1 = (TransactionResource) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , 
+				new Class[] {TransactionResource.class}, new MyInvocationHandler());
 		//transactionCoordination.registerResource(R1); 
 		//Ps: l'enregistrement des resources ne se fait pas ici, vu que le TManager qui a toute les resources.
 		//C'est ces resources qui vont être donner au cordinateur.
@@ -56,6 +56,17 @@ public class TransactionDriver {
 		transactionCoordination.commit();
 		
 		//a faire: simuler l envoie d une rqt de tr au resource et tr recoi la réponse. proxy
-		//comprendre les commit rollb .. de resource1 et coordi et transactionImpl */
+		//comprendre les commit rollb .. de resource1 et coordi et transactionImpl
+		
+		
+		
+		
+		/**
+		 * for (TransactionResource resource : transactionManager.getResources()) {
+			System.out.println(resource.getIdentifiant());
+		}
+		 * 
+		 */
+		
 	}
 }

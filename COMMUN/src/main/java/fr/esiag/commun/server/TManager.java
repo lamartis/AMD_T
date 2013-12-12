@@ -33,13 +33,12 @@ public class TManager extends TransactionManagerPOA {
 
 	public void registerResource(final TransactionResource resource) {
 		resources.add(resource);
-		System.out.println("Added new resource: [Resources size= " + resources.size() + "]");
-		System.out.println(resource.getIdentifiant());
+		System.out.println("Added new resource: [Identifiant: " + resource.getIdentifiant() + "] : [Resources size= " + resources.size() + "]");
 	}
 
 	public TransactionResource[] getResources() {
 		int i = 0;
-		TransactionResource[] tResources = new TransactionResource[3];
+		TransactionResource[] tResources = new TransactionResource[resources.size()];
 		for (TransactionResource transactionResource : resources) {
 			tResources[i++] = transactionResource;
 		}
