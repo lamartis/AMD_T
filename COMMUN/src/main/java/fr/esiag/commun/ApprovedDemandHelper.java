@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL struct "ApprovedDemand".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 8 déc. 2013 15:09:47
+ * @version generated at 12 déc. 2013 21:55:59
  */
 
 public abstract class ApprovedDemandHelper
@@ -65,8 +65,8 @@ public abstract class ApprovedDemandHelper
 	}
 	public static void write (final org.omg.CORBA.portable.OutputStream out, final fr.esiag.commun.ApprovedDemand s)
 	{
-		java.lang.String tmpResult2 = s.approvedDemandID;
-out.write_string( tmpResult2 );
+		java.lang.String tmpResult3 = s.approvedDemandID;
+out.write_string( tmpResult3 );
 		fr.esiag.commun.DemandHelper.write(out,s.mydemand);
 	}
 }

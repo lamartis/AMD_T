@@ -6,6 +6,10 @@ import fr.esiag.commun.resource.TResource;
 
 public class Resource1 extends TResource {
 
+	public Resource1(String resourceName) {
+		super(resourceName);
+	}
+
 	public void prepare() throws NotPreparedException {
 		// TODO Auto-generated method stub
 	}
@@ -21,6 +25,6 @@ public class Resource1 extends TResource {
 	}
 
 	public static void main(String[] args){
-		new Resource1();
+		new Resource1("R1");
 	}
 }

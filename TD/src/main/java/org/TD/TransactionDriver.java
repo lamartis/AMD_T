@@ -2,11 +2,13 @@ package org.TD;
 
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
+
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionCoordination;
 import fr.esiag.commun.TransactionFactory;
 import fr.esiag.commun.TransactionManager;
 import fr.esiag.commun.TransactionManagerHelper;
+import fr.esiag.commun.TransactionResource;
 
 public class TransactionDriver {
 
@@ -20,10 +22,14 @@ public class TransactionDriver {
 
 		// and narrow it 
 		TransactionManager transactionManager = TransactionManagerHelper.narrow(obj);
-
-		// invoke transactionManager to receive transactionFactory.
+		
+		for (TransactionResource resource : transactionManager.getResources()) {
+			System.out.println("dkhal");
+			System.out.println(resource.getIdentifiant().toString());
+		}
+/*		// invoke transactionManager to receive transactionFactory.
 		TransactionFactory transactionFactory = transactionManager.getTransactionFactory();
-
+		
 		// invoke transactionFactory to create new Transaction, and retrieve it.
 		Transaction transaction = transactionFactory.createTransaction();
 
@@ -50,6 +56,6 @@ public class TransactionDriver {
 		transactionCoordination.commit();
 		
 		//a faire: simuler l envoie d une rqt de tr au resource et tr recoi la réponse. proxy
-		//comprendre les commit rollb .. de resource1 et coordi et transactionImpl
+		//comprendre les commit rollb .. de resource1 et coordi et transactionImpl */
 	}
 }

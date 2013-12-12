@@ -1,11 +1,12 @@
-
 module transaction {
 	
 	typedef sequence<octet> TransactionID;
+	typedef sequence<octet> ResourceID;
 	exception NotPreparedException {} ;
 	exception TransactionException {} ;
 	
 	interface TransactionResource {
+		string getIdentifiant();
 		void prepare() raises (NotPreparedException);
 		void commit() raises(TransactionException);
 		void rollback() raises(TransactionException);
@@ -52,7 +53,7 @@ module transaction {
 	};
 	
 	interface ManageDemand {
-		Demand createDemand(in string accountID, in double amount); 
+		Demand createDemand(in string accountID, in double amount);
 	};
 	
 	interface AnalyseDemand {

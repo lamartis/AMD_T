@@ -25,7 +25,7 @@ public class TCoordination extends TransactionCoordinationPOA{
 	public TransactionResource[] getResources() {
 		int i = 0;
 		TransactionResource[] tResources = new TransactionResource[3];
-		for (TransactionResource transactionResource : tResources) {
+		for (TransactionResource transactionResource : resources) {
 			tResources[i++] = transactionResource;
 		}
 		return tResources;
