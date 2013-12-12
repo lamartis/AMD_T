@@ -4,12 +4,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-
-import org.omg.CosTransactions.Coordinator;
-import org.omg.CosTransactions.CoordinatorPOA;
-
 import fr.esiag.commun.TransactionCoordinationPOA;
-import fr.esiag.commun.TransactionIDHelper;
 import fr.esiag.commun.TransactionResource;
 
 public class TCoordination extends TransactionCoordinationPOA{

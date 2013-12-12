@@ -5,8 +5,6 @@ import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.resource.TResource;
 
 public class Resource2 extends TResource {
-	// Tester si j'arrive à récupérer la resource depuis un client.
-	// Et voir aussi la réference.
 
 	public void prepare() throws NotPreparedException {
 		// TODO Auto-generated method stub

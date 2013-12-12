@@ -1,17 +1,12 @@
 package org.TD;
 
-import java.lang.reflect.Proxy;
-
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
-
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionCoordination;
 import fr.esiag.commun.TransactionFactory;
 import fr.esiag.commun.TransactionManager;
 import fr.esiag.commun.TransactionManagerHelper;
-import fr.esiag.commun.TransactionResource;
-import fr.esiag.commun.TransactionResourceHelper;
 
 public class TransactionDriver {
 

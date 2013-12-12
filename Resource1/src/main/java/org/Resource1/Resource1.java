@@ -19,6 +19,8 @@ public class Resource1 extends TResource {
 		// TODO Auto-generated method stub
 		
 	}
-}
 
-//05 39 94 65 47
+	public static void main(String[] args){
+		new Resource1();
+	}
+}
