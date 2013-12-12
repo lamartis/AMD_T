@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="COMMUN/src/main/java"/>
+	<classpathentry kind="src" path="COSTransaction/src/main/java"/>
+	<classpathentry kind="src" path="Resource1/src/main/java"/>
+	<classpathentry kind="src" path="Resource2/src/main/java"/>
+	<classpathentry kind="src" path="Resource3/src/main/java"/>
+	<classpathentry kind="src" path="TD/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="TD/target/classes"/>
+</classpath>

@@ -1,7 +1,10 @@
 package org.TD;
 
+import java.lang.reflect.Proxy;
+
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
+
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionCoordination;
 import fr.esiag.commun.TransactionFactory;
@@ -33,13 +36,25 @@ public class TransactionDriver {
 		TransactionCoordination transactionCoordination = transaction.getCoordinator();
 		System.out.println(transactionCoordination);
 		
-		// add resource1 on this transactionCoordination
-		Object object = orb.string_to_object("corbaloc:iiop:1.2@127.0.0.1:2345/Server/TManagerPOAP/TR1");
-		TransactionResource R1 = TransactionResourceHelper.narrow(object);
+		//TransactionResource R1 = Proxy ...
+		//transactionCoordination.registerResource(R1); 
+		//Ps: l'enregistrement des resources ne se fait pas ici, vu que le TManager qui a toute les resources.
+		//C'est ces resources qui vont être donner au cordinateur.
 		
-		// registre resource1 on TransactionCoordination
-		transactionCoordination.registerResource(R1);
+		//TransactionResource R2 = Proxy ...
+		//transactionCoordination.registerResource(R2);
 		
-		System.out.println(R1.getReference()); 
+		//TransactionResource R3 = Proxy ...
+		//transactionCoordination.registerResource(R3);
+		
+		//ds l begin le coordi indique au ressource l'id transaction
+		transactionCoordination.begin();
+		// Demand d         = R1.createDemand(loginID, amount);
+		// ApproveDemand ap = R2.aproveDemand(d);
+		// String response  = R3.creditAccount(ap);
+		transactionCoordination.commit();
+		
+		//a faire: simuler l envoie d une rqt de tr au resource et tr recoi la réponse. proxy
+		//comprendre les commit rollb .. de resource1 et coordi et transactionImpl
 	}
 }

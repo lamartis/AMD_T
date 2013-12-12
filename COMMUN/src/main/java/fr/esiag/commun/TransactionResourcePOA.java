@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "TransactionResource".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 29 nov. 2013 09:49:26
+ * @version generated at 8 déc. 2013 15:09:47
  */
 
 public abstract class TransactionResourcePOA
@@ -16,9 +16,8 @@ public abstract class TransactionResourcePOA
 	static
 	{
 		m_opsHash.put ( "rollback", Integer.valueOf(0));
-		m_opsHash.put ( "getReference", Integer.valueOf(1));
-		m_opsHash.put ( "commit", Integer.valueOf(2));
-		m_opsHash.put ( "prepare", Integer.valueOf(3));
+		m_opsHash.put ( "commit", Integer.valueOf(1));
+		m_opsHash.put ( "prepare", Integer.valueOf(2));
 	}
 	private String[] ids = {"IDL:transaction/TransactionResource:1.0"};
 	public fr.esiag.commun.TransactionResource _this()
@@ -58,14 +57,7 @@ public abstract class TransactionResourcePOA
 			}
 				break;
 			}
-			case 1: // getReference
-			{
-				_out = handler.createReply();
-				java.lang.String tmpResult0 = getReference();
-_out.write_string( tmpResult0 );
-				break;
-			}
-			case 2: // commit
+			case 1: // commit
 			{
 			try
 			{
@@ -79,7 +71,7 @@ _out.write_string( tmpResult0 );
 			}
 				break;
 			}
-			case 3: // prepare
+			case 2: // prepare
 			{
 			try
 			{

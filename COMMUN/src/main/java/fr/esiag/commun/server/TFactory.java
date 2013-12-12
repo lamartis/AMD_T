@@ -23,13 +23,11 @@ public class TFactory extends TransactionFactoryPOA {
 		System.out.println("Factory Created !!");
 	}
 
-	public Transaction createTransaction() {
-		// l'environement est multiThread. ( A gérer )
-		
+	public Transaction createTransaction() {		
 		UUID uuid = UUID.randomUUID();
 		uuids.add(uuid);
 		
-		TransactionImp transactionImpl = new TransactionImp();
+		TransactionImp transactionImpl = new TransactionImp(uuid);
 		Transaction transaction = TransactionHelper.narrow(orbProvider.activate(transactionImpl));
 		
 		transactions.put(uuid, transaction);

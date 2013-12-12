@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "TransactionManager".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 29 nov. 2013 09:49:26
+ * @version generated at 8 déc. 2013 15:09:47
  */
 
 public abstract class TransactionManagerPOA
@@ -16,6 +16,7 @@ public abstract class TransactionManagerPOA
 	static
 	{
 		m_opsHash.put ( "getTransactionFactory", Integer.valueOf(0));
+		m_opsHash.put ( "registerResource", Integer.valueOf(1));
 	}
 	private String[] ids = {"IDL:transaction/TransactionManager:1.0"};
 	public fr.esiag.commun.TransactionManager _this()
@@ -45,6 +46,13 @@ public abstract class TransactionManagerPOA
 			{
 				_out = handler.createReply();
 				fr.esiag.commun.TransactionFactoryHelper.write(_out,getTransactionFactory());
+				break;
+			}
+			case 1: // registerResource
+			{
+				fr.esiag.commun.TransactionResource _arg0=fr.esiag.commun.TransactionResourceHelper.read(_input);
+				_out = handler.createReply();
+				registerResource(_arg0);
 				break;
 			}
 		}
