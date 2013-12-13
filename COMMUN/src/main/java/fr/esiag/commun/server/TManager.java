@@ -36,12 +36,12 @@ public class TManager extends TransactionManagerPOA {
 		System.out.println("Added new resource: [Identifiant: " + resource.getIdentifiant() + "] : [Resources size= " + resources.size() + "]");
 	}
 
-	public TransactionResource[] getResources() {
-		int i = 0;
-		TransactionResource[] tResources = new TransactionResource[resources.size()];
+	// Faut rajouter l'exeption, si la resource n'existe pas.
+	public TransactionResource getResource(String resourceName) {
 		for (TransactionResource transactionResource : resources) {
-			tResources[i++] = transactionResource;
+			if (transactionResource.getIdentifiant().equals(resourceName))
+				return transactionResource;
 		}
-		return tResources;
+		return null;
 	}
 }

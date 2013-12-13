@@ -1,34 +1,34 @@
 package fr.esiag.commun;
 
 /**
- * Generated from IDL alias "Resources".
+ * Generated from IDL alias "ResourceID".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
  * @version generated at 13 déc. 2013 00:57:06
  */
 
-public final class ResourcesHolder
+public final class ResourceIDHolder
 	implements org.omg.CORBA.portable.Streamable
 {
-	public fr.esiag.commun.TransactionResource[] value;
+	public byte[] value;
 
-	public ResourcesHolder ()
+	public ResourceIDHolder ()
 	{
 	}
-	public ResourcesHolder (final fr.esiag.commun.TransactionResource[] initial)
+	public ResourceIDHolder (final byte[] initial)
 	{
 		value = initial;
 	}
 	public org.omg.CORBA.TypeCode _type ()
 	{
-		return ResourcesHelper.type ();
+		return ResourceIDHelper.type ();
 	}
 	public void _read (final org.omg.CORBA.portable.InputStream in)
 	{
-		value = ResourcesHelper.read (in);
+		value = ResourceIDHelper.read (in);
 	}
 	public void _write (final org.omg.CORBA.portable.OutputStream out)
 	{
-		ResourcesHelper.write (out,value);
+		ResourceIDHelper.write (out,value);
 	}
 }

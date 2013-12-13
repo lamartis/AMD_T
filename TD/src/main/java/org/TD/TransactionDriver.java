@@ -5,6 +5,8 @@ import java.lang.reflect.Proxy;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
 
+import fr.esiag.commun.Demand;
+import fr.esiag.commun.ManageDemand;
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionCoordination;
 import fr.esiag.commun.TransactionFactory;
@@ -16,7 +18,7 @@ import fr.esiag.commun.resource.MyInvocationHandler;
 public class TransactionDriver {
 
 	public static void main(String[] args){
-		
+
 		// initialize the ORB.
 		ORB orb = ORB.init( new String[]{}, null );
 
@@ -31,13 +33,18 @@ public class TransactionDriver {
 		
 		// invoke transactionFactory to create new Transaction, and retrieve it.
 		Transaction transaction = transactionFactory.createTransaction();
-
+		
 		// get transactionCoordination from Transaction
 		TransactionCoordination transactionCoordination = transaction.getCoordinator();
 		System.out.println(transactionCoordination);
+		 
+		// Create functional proxy which it believes that it contacts the resource directly. But it's not Correct.
+		// This proxy will tell the CosTransaction to treat requests Transaction driver through resource object.
+
+		ManageDemand R1 = (ManageDemand) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , 
+		new Class[] {TransactionResource.class}, new MyInvocationHandler(transactionManager, transactionCoordination));
 		
-		//TransactionResource R1 = (TransactionResource) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , 
-		//		new Class[] {TransactionResource.class}, new MyInvocationHandler());
+
 		//transactionCoordination.registerResource(R1); 
 		//Ps: l'enregistrement des resources ne se fait pas ici, vu que le TManager qui a toute les resources.
 		//C'est ces resources qui vont être donner au cordinateur.
@@ -50,7 +57,7 @@ public class TransactionDriver {
 		
 		//ds l begin le coordi indique au ressource l'id transaction
 		transactionCoordination.begin();
-		// Demand d         = R1.createDemand(loginID, amount);
+		Demand d          = R1.createDemand("loginID", 12);
 		// ApproveDemand ap = R2.aproveDemand(d);
 		// String response  = R3.creditAccount(ap);
 		transactionCoordination.commit();
@@ -58,7 +65,8 @@ public class TransactionDriver {
 		//a faire: simuler l envoie d une rqt de tr au resource et tr recoi la réponse. proxy
 		//comprendre les commit rollb .. de resource1 et coordi et transactionImpl
 		
-		
+		//Rajouter dans le coordinateur getTransactionName();
+		//Ce qui me bloque c'est l'enregistrement des resources dans le coordinateur, se font ou ? par qui?
 		
 		
 		/**

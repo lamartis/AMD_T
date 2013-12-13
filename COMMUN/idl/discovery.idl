@@ -33,6 +33,7 @@ module transaction {
 
 	interface TransactionManager {
 		void registerResource(in TransactionResource resource );
+		TransactionResource getResource(in string resourceName);
 		TransactionFactory getTransactionFactory();
 	};
 

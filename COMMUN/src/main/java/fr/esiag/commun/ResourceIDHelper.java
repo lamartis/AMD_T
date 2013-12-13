@@ -1,13 +1,13 @@
 package fr.esiag.commun;
 
 /**
- * Generated from IDL alias "TransactionID".
+ * Generated from IDL alias "ResourceID".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
  * @version generated at 13 déc. 2013 00:57:06
  */
 
-public abstract class TransactionIDHelper
+public abstract class ResourceIDHelper
 {
 	private volatile static org.omg.CORBA.TypeCode _type;
 
@@ -30,11 +30,11 @@ public abstract class TransactionIDHelper
 	{
 		if (_type == null)
 		{
-			synchronized(TransactionIDHelper.class)
+			synchronized(ResourceIDHelper.class)
 			{
 				if (_type == null)
 				{
-					_type = org.omg.CORBA.ORB.init().create_alias_tc(fr.esiag.commun.TransactionIDHelper.id(), "TransactionID",org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(10))));
+					_type = org.omg.CORBA.ORB.init().create_alias_tc(fr.esiag.commun.ResourceIDHelper.id(), "ResourceID",org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(10))));
 				}
 			}
 		}
@@ -43,25 +43,25 @@ public abstract class TransactionIDHelper
 
 	public static String id()
 	{
-		return "IDL:transaction/TransactionID:1.0";
+		return "IDL:transaction/ResourceID:1.0";
 	}
 	public static byte[] read (final org.omg.CORBA.portable.InputStream _in)
 	{
 		byte[] _result;
-		int _l_result0 = _in.read_long();
+		int _l_result1 = _in.read_long();
 		try
 		{
 			 int x = _in.available();
-			 if ( x > 0 && _l_result0 > x )
+			 if ( x > 0 && _l_result1 > x )
 				{
-					throw new org.omg.CORBA.MARSHAL("Sequence length too large. Only " + x + " available and trying to assign " + _l_result0);
+					throw new org.omg.CORBA.MARSHAL("Sequence length too large. Only " + x + " available and trying to assign " + _l_result1);
 				}
 		}
 		catch (java.io.IOException e)
 		{
 		}
-		_result = new byte[_l_result0];
-		_in.read_octet_array(_result,0,_l_result0);
+		_result = new byte[_l_result1];
+		_in.read_octet_array(_result,0,_l_result1);
 		return _result;
 	}
 

@@ -5,13 +5,16 @@ import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.resource.TResource;
 
 public class Resource1 extends TResource {
-
+	
+	public ManageDemandImpl manageDemandImpl = null;
+	
 	public Resource1(String resourceName) {
 		super(resourceName);
 	}
 
 	public void prepare() throws NotPreparedException {
 		// TODO Auto-generated method stub
+		
 	}
 
 	public void commit() throws TransactionException {

@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL struct "Demand".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 12 déc. 2013 21:55:59
+ * @version generated at 13 déc. 2013 00:57:06
  */
 
 public abstract class DemandHelper
@@ -66,10 +66,10 @@ public abstract class DemandHelper
 	}
 	public static void write (final org.omg.CORBA.portable.OutputStream out, final fr.esiag.commun.Demand s)
 	{
-		java.lang.String tmpResult1 = s.demandID;
-out.write_string( tmpResult1 );
-		java.lang.String tmpResult2 = s.accountID;
+		java.lang.String tmpResult2 = s.demandID;
 out.write_string( tmpResult2 );
+		java.lang.String tmpResult3 = s.accountID;
+out.write_string( tmpResult3 );
 		out.write_double(s.amount);
 	}
 }
