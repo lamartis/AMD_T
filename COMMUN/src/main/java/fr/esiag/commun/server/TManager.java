@@ -1,8 +1,12 @@
 package fr.esiag.commun.server;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+
+import org.omg.CORBA.Object;
 
 import fr.esiag.commun.TransactionFactory;
 import fr.esiag.commun.TransactionFactoryHelper;
@@ -15,8 +19,8 @@ public class TManager extends TransactionManagerPOA {
 	TransactionFactory transactionFactory;
 	ORBProvider orbProvider = ORBProvider.getInstance("1234");
 	// Faut stocker la resource et son identifiant R1 ou R2 ou R3.
-	private Set<TransactionResource> resources = 
-			Collections.synchronizedSet(new HashSet<TransactionResource>());
+	//private Set<TransactionResource> resources = Collections.synchronizedSet(new HashSet<TransactionResource>());
+	private Map<String, Object> objectsReferentiels = new HashMap<String, Object>();
 
 	public TManager(){
 		//Persisted this object (TransactionManager)
@@ -31,7 +35,7 @@ public class TManager extends TransactionManagerPOA {
 		return transactionFactory;
 	}
 
-	public void registerResource(final TransactionResource resource) {
+	public void registerResource(TransactionResource resource) {
 		resources.add(resource);
 		System.out.println("Added new resource: [Identifiant: " + resource.getIdentifiant() + "] : [Resources size= " + resources.size() + "]");
 	}
