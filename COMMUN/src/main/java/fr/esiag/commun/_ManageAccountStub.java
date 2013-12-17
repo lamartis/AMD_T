@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "ManageAccount".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public class _ManageAccountStub
@@ -21,7 +21,7 @@ public class _ManageAccountStub
 	}
 
 	public final static java.lang.Class _opsClass = fr.esiag.commun.ManageAccountOperations.class;
-	public fr.esiag.commun.Account creditAccount(fr.esiag.commun.ApprovedDemand demand)
+	public java.lang.String creditAccount(java.lang.String demanddd)
 	{
 		while(true)
 		{
@@ -32,9 +32,10 @@ public class _ManageAccountStub
 				try
 				{
 					_os = _request( "creditAccount", true);
-					fr.esiag.commun.ApprovedDemandHelper.write(_os,demand);
+					java.lang.String tmpResult4 = demanddd;
+_os.write_string( tmpResult4 );
 					_is = _invoke(_os);
-					fr.esiag.commun.Account _result = fr.esiag.commun.AccountHelper.read(_is);
+					java.lang.String _result = _is.read_string();
 					return _result;
 				}
 				catch( org.omg.CORBA.portable.RemarshalException _rx )
@@ -76,10 +77,10 @@ public class _ManageAccountStub
 			if( _so == null )
 				continue;
 			ManageAccountOperations _localServant = (ManageAccountOperations)_so.servant;
-			fr.esiag.commun.Account _result;
+			java.lang.String _result;
 			try
 			{
-				_result = _localServant.creditAccount(demand);
+				_result = _localServant.creditAccount(demanddd);
 				if ( _so instanceof org.omg.CORBA.portable.ServantObjectExt) 
 					((org.omg.CORBA.portable.ServantObjectExt)_so).normalCompletion();
 				return _result;

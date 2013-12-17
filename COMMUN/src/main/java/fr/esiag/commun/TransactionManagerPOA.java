@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "TransactionManager".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public abstract class TransactionManagerPOA
@@ -15,9 +15,8 @@ public abstract class TransactionManagerPOA
 	static private final java.util.HashMap<String,Integer> m_opsHash = new java.util.HashMap<String,Integer>();
 	static
 	{
-		m_opsHash.put ( "getResource", Integer.valueOf(0));
-		m_opsHash.put ( "getTransactionFactory", Integer.valueOf(1));
-		m_opsHash.put ( "registerResource", Integer.valueOf(2));
+		m_opsHash.put ( "getTransactionFactory", Integer.valueOf(0));
+		m_opsHash.put ( "registerResource", Integer.valueOf(1));
 	}
 	private String[] ids = {"IDL:transaction/TransactionManager:1.0"};
 	public fr.esiag.commun.TransactionManager _this()
@@ -43,20 +42,13 @@ public abstract class TransactionManagerPOA
 			throw new org.omg.CORBA.BAD_OPERATION(method + " not found");
 		switch ( opsIndex.intValue() )
 		{
-			case 0: // getResource
-			{
-				java.lang.String _arg0=_input.read_string();
-				_out = handler.createReply();
-				fr.esiag.commun.TransactionResourceHelper.write(_out,getResource(_arg0));
-				break;
-			}
-			case 1: // getTransactionFactory
+			case 0: // getTransactionFactory
 			{
 				_out = handler.createReply();
 				fr.esiag.commun.TransactionFactoryHelper.write(_out,getTransactionFactory());
 				break;
 			}
-			case 2: // registerResource
+			case 1: // registerResource
 			{
 				fr.esiag.commun.TransactionResource _arg0=fr.esiag.commun.TransactionResourceHelper.read(_input);
 				_out = handler.createReply();

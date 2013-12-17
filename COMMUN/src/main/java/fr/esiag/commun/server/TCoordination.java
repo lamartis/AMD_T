@@ -35,13 +35,4 @@ public class TCoordination extends TransactionCoordinationPOA{
 		return tResources;
 	}
 
-	public void begin() {
-		// Envoyer au ressources, l'id transaction dont il doivent faire parti.
-		
-	}
-
-	public void commit() {
-		// là, faut appel aux commits de tous les resources.
-	}
-
 }

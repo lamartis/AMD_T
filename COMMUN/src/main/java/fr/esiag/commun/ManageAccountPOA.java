@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "ManageAccount".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public abstract class ManageAccountPOA
@@ -43,9 +43,10 @@ public abstract class ManageAccountPOA
 		{
 			case 0: // creditAccount
 			{
-				fr.esiag.commun.ApprovedDemand _arg0=fr.esiag.commun.ApprovedDemandHelper.read(_input);
+				java.lang.String _arg0=_input.read_string();
 				_out = handler.createReply();
-				fr.esiag.commun.AccountHelper.write(_out,creditAccount(_arg0));
+				java.lang.String tmpResult5 = creditAccount(_arg0);
+_out.write_string( tmpResult5 );
 				break;
 			}
 		}

@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "ManageDemand".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public class _ManageDemandStub
@@ -21,7 +21,7 @@ public class _ManageDemandStub
 	}
 
 	public final static java.lang.Class _opsClass = fr.esiag.commun.ManageDemandOperations.class;
-	public fr.esiag.commun.Demand createDemand(java.lang.String accountID, double amount)
+	public java.lang.String createDemand(java.lang.String demand)
 	{
 		while(true)
 		{
@@ -32,11 +32,10 @@ public class _ManageDemandStub
 				try
 				{
 					_os = _request( "createDemand", true);
-					java.lang.String tmpResult6 = accountID;
-_os.write_string( tmpResult6 );
-					_os.write_double(amount);
+					java.lang.String tmpResult0 = demand;
+_os.write_string( tmpResult0 );
 					_is = _invoke(_os);
-					fr.esiag.commun.Demand _result = fr.esiag.commun.DemandHelper.read(_is);
+					java.lang.String _result = _is.read_string();
 					return _result;
 				}
 				catch( org.omg.CORBA.portable.RemarshalException _rx )
@@ -78,10 +77,10 @@ _os.write_string( tmpResult6 );
 			if( _so == null )
 				continue;
 			ManageDemandOperations _localServant = (ManageDemandOperations)_so.servant;
-			fr.esiag.commun.Demand _result;
+			java.lang.String _result;
 			try
 			{
-				_result = _localServant.createDemand(accountID,amount);
+				_result = _localServant.createDemand(demand);
 				if ( _so instanceof org.omg.CORBA.portable.ServantObjectExt) 
 					((org.omg.CORBA.portable.ServantObjectExt)_so).normalCompletion();
 				return _result;

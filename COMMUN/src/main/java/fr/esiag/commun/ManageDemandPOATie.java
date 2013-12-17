@@ -6,7 +6,7 @@ import org.omg.PortableServer.POA;
  * Generated from IDL interface "ManageDemand".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public class ManageDemandPOATie
@@ -52,9 +52,9 @@ public class ManageDemandPOATie
 		}
 		return super._default_POA();
 	}
-	public fr.esiag.commun.Demand createDemand(java.lang.String accountID, double amount)
+	public java.lang.String createDemand(java.lang.String demand)
 	{
-		return _delegate.createDemand(accountID,amount);
+		return _delegate.createDemand(demand);
 	}
 
 }

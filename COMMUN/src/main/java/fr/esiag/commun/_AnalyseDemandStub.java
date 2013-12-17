@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "AnalyseDemand".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public class _AnalyseDemandStub
@@ -21,7 +21,7 @@ public class _AnalyseDemandStub
 	}
 
 	public final static java.lang.Class _opsClass = fr.esiag.commun.AnalyseDemandOperations.class;
-	public fr.esiag.commun.ApprovedDemand approveDemand(fr.esiag.commun.Demand mydemand)
+	public java.lang.String approveDemand(java.lang.String demandd)
 	{
 		while(true)
 		{
@@ -32,9 +32,10 @@ public class _AnalyseDemandStub
 				try
 				{
 					_os = _request( "approveDemand", true);
-					fr.esiag.commun.DemandHelper.write(_os,mydemand);
+					java.lang.String tmpResult2 = demandd;
+_os.write_string( tmpResult2 );
 					_is = _invoke(_os);
-					fr.esiag.commun.ApprovedDemand _result = fr.esiag.commun.ApprovedDemandHelper.read(_is);
+					java.lang.String _result = _is.read_string();
 					return _result;
 				}
 				catch( org.omg.CORBA.portable.RemarshalException _rx )
@@ -76,10 +77,10 @@ public class _AnalyseDemandStub
 			if( _so == null )
 				continue;
 			AnalyseDemandOperations _localServant = (AnalyseDemandOperations)_so.servant;
-			fr.esiag.commun.ApprovedDemand _result;
+			java.lang.String _result;
 			try
 			{
-				_result = _localServant.approveDemand(mydemand);
+				_result = _localServant.approveDemand(demandd);
 				if ( _so instanceof org.omg.CORBA.portable.ServantObjectExt) 
 					((org.omg.CORBA.portable.ServantObjectExt)_so).normalCompletion();
 				return _result;

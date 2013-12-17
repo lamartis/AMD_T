@@ -1,4 +1,4 @@
-package org.Resource1;
+package fr.esiag.commun.server;
 
 import fr.esiag.commun.ManageDemandPOA;
 

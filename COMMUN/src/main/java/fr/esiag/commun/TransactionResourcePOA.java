@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "TransactionResource".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public abstract class TransactionResourcePOA
@@ -15,10 +15,10 @@ public abstract class TransactionResourcePOA
 	static private final java.util.HashMap<String,Integer> m_opsHash = new java.util.HashMap<String,Integer>();
 	static
 	{
-		m_opsHash.put ( "getIdentifiant", Integer.valueOf(0));
-		m_opsHash.put ( "rollback", Integer.valueOf(1));
-		m_opsHash.put ( "commit", Integer.valueOf(2));
-		m_opsHash.put ( "prepare", Integer.valueOf(3));
+		m_opsHash.put ( "rollback", Integer.valueOf(0));
+		m_opsHash.put ( "commit", Integer.valueOf(1));
+		m_opsHash.put ( "prepare", Integer.valueOf(2));
+		m_opsHash.put ( "getService", Integer.valueOf(3));
 	}
 	private String[] ids = {"IDL:transaction/TransactionResource:1.0"};
 	public fr.esiag.commun.TransactionResource _this()
@@ -44,14 +44,7 @@ public abstract class TransactionResourcePOA
 			throw new org.omg.CORBA.BAD_OPERATION(method + " not found");
 		switch ( opsIndex.intValue() )
 		{
-			case 0: // getIdentifiant
-			{
-				_out = handler.createReply();
-				java.lang.String tmpResult0 = getIdentifiant();
-_out.write_string( tmpResult0 );
-				break;
-			}
-			case 1: // rollback
+			case 0: // rollback
 			{
 			try
 			{
@@ -65,7 +58,7 @@ _out.write_string( tmpResult0 );
 			}
 				break;
 			}
-			case 2: // commit
+			case 1: // commit
 			{
 			try
 			{
@@ -79,7 +72,7 @@ _out.write_string( tmpResult0 );
 			}
 				break;
 			}
-			case 3: // prepare
+			case 2: // prepare
 			{
 			try
 			{
@@ -91,6 +84,12 @@ _out.write_string( tmpResult0 );
 				_out = handler.createExceptionReply();
 				fr.esiag.commun.NotPreparedExceptionHelper.write(_out, _ex0);
 			}
+				break;
+			}
+			case 3: // getService
+			{
+				_out = handler.createReply();
+				_out.write_Object(getService());
 				break;
 			}
 		}

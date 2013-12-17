@@ -1,5 +1,7 @@
 package org.Resource1;
 
+import org.omg.CORBA.Object;
+
 import fr.esiag.commun.NotPreparedException;
 import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.resource.TResource;
@@ -29,5 +31,9 @@ public class Resource1 extends TResource {
 
 	public static void main(String[] args){
 		new Resource1("R1");
+	}
+
+	public Object getService() {
+		return (Object) manageDemandImpl;
 	}
 }

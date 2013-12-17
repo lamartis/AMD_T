@@ -1,12 +1,25 @@
 module transaction {
 	
+	interface ManageDemand {
+		string createDemand(in string demand);
+	};
+	
+	interface AnalyseDemand {
+		string approveDemand(in string demandd);
+	};
+	
+	interface ManageAccount {
+		string creditAccount(in string demanddd);
+	};
+	
+		
 	typedef sequence<octet> TransactionID;
 	typedef sequence<octet> ResourceID;
 	exception NotPreparedException {} ;
 	exception TransactionException {} ;
 	
 	interface TransactionResource {
-		string getIdentifiant();
+		Object getService();
 		void prepare() raises (NotPreparedException);
 		void commit() raises(TransactionException);
 		void rollback() raises(TransactionException);
@@ -14,14 +27,13 @@ module transaction {
 	
 	typedef sequence<TransactionResource> Resources;
 	interface TransactionCoordination {
-		void begin();
 		void registerResource(in TransactionResource resource );
 		Resources getResources ();
-		void commit();
 	};
 
 	interface Transaction {
 		TransactionCoordination getCoordinator();
+		ManageDemand addResource(in TransactionResource resource);
 		void begin() raises(TransactionException);
 		void commit() raises(TransactionException);
 		void rollback() raises(TransactionException);
@@ -32,37 +44,9 @@ module transaction {
 	};
 
 	interface TransactionManager {
-		Any registerResource(in TransactionResource resource );
-		TransactionResource getResource(in string resourceName);
+		void registerResource(in TransactionResource resource );
 		TransactionFactory getTransactionFactory();
 	};
 
-	struct Demand {
-		string demandID;
-		string accountID;
-		double amount;
-	};
-	
-	struct ApprovedDemand {
-		string approvedDemandID;
-		Demand mydemand;
-	};		
-	
-	struct Account {
-		string accountID;
-		double solde;
-	};
-	
-	interface ManageDemand {
-		Demand createDemand(in string accountID, in double amount);
-	};
-	
-	interface AnalyseDemand {
-		ApprovedDemand approveDemand(in Demand mydemand);
-	};
-	
-	interface ManageAccount {
-		Account creditAccount(in ApprovedDemand demand);
-	};
 	
 };

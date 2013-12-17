@@ -6,7 +6,7 @@ import org.omg.PortableServer.POA;
  * Generated from IDL interface "AnalyseDemand".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 13 déc. 2013 00:57:06
+ * @version generated at 16 déc. 2013 18:27:53
  */
 
 public class AnalyseDemandPOATie
@@ -52,9 +52,9 @@ public class AnalyseDemandPOATie
 		}
 		return super._default_POA();
 	}
-	public fr.esiag.commun.ApprovedDemand approveDemand(fr.esiag.commun.Demand mydemand)
+	public java.lang.String approveDemand(java.lang.String demandd)
 	{
-		return _delegate.approveDemand(mydemand);
+		return _delegate.approveDemand(demandd);
 	}
 
 }
