@@ -3,20 +3,12 @@ package fr.esiag.commun.server;
 import java.io.IOException;
 import java.lang.reflect.Proxy;
 import java.util.UUID;
-
-import org.omg.CORBA.Any;
-import org.omg.CORBA.AnyHolder;
-import org.omg.CORBA.ORB;
-import org.omg.CosTrading.ProxyHelper;
-import org.omg.PortableServer.Servant;
-
-import fr.esiag.commun.ManageDemand;
-import fr.esiag.commun.ManageDemandHelper;
 import fr.esiag.commun.TransactionCoordination;
 import fr.esiag.commun.TransactionCoordinationHelper;
 import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.TransactionPOA;
 import fr.esiag.commun.TransactionResource;
+import fr.esiag.commun.interfaces.resource.ManageDemand;
 import fr.esiag.commun.orb.ORBProvider;
 import fr.esiag.commun.resource.MyInvocationHandler;
 import fr.esiag.commun.tools.ProxySerialization;
@@ -54,14 +46,9 @@ public class TransactionImp extends TransactionPOA {
 
 	public byte[] addResource(TransactionResource resource) {
 		this.getCoordinator().registerResource(resource);
+
 		// creation of a proxy. 
-	//	TransactionResource R1 = (TransactionResource) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler());
-	//	ManageDemand R 1 = (ManageDemand) Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , 
-	//			new Class[] {ManageDemand.class}, new MyInvocationHandler());
-		
-	//	ManageDemandImpl R1 = new ManageDemandImpl();
-	//	ManageDemand manageDemand = ManageDemandHelper.narrow(orbProvider.activate(R1)); 
-		Object o = Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler());
+		Object o = Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler(resource));
 		
 		// Serialize Object before sending.
 		byte[] proxy = null;

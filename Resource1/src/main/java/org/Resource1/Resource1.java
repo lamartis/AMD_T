@@ -1,19 +1,21 @@
 package org.Resource1;
 
 import org.omg.CORBA.Object;
-
 import fr.esiag.commun.NotPreparedException;
 import fr.esiag.commun.TransactionException;
+import fr.esiag.commun.interfaces.resource.ManageDemand;
 import fr.esiag.commun.resource.TResource;
 
-public class Resource1 extends TResource {
-	
-	public ManageDemandImpl manageDemandImpl = null;
+public class Resource1 extends TResource implements ManageDemand {
 	
 	public Resource1(String resourceName) {
 		super(resourceName);
 	}
 
+	public String createDemand(String name) {
+		return name;
+	}
+	
 	public void prepare() throws NotPreparedException {
 		// TODO Auto-generated method stub
 		
@@ -34,6 +36,7 @@ public class Resource1 extends TResource {
 	}
 
 	public Object getService() {
-		return (Object) manageDemandImpl;
+		return null;
 	}
+
 }

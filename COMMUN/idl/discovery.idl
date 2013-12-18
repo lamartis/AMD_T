@@ -1,17 +1,4 @@
 module transaction {
-	
-	interface ManageDemand {
-		string createDemand(in string demand);
-	};
-	
-	interface AnalyseDemand {
-		string approveDemand(in string demandd);
-	};
-	
-	interface ManageAccount {
-		string creditAccount(in string demanddd);
-	};
-	
 		
 	typedef sequence<octet> TransactionID;
 	typedef sequence<octet> ResourceID;

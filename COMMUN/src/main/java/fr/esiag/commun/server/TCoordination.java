@@ -20,7 +20,7 @@ public class TCoordination extends TransactionCoordinationPOA{
 	
 	public void registerResource(TransactionResource resource) {
 		resources.add(resource);
-		System.out.println("Resource Added ! ");
+		System.out.println("Resource Added on the cordinator! ");
 		//ManageDemand R1 = (ManageDemand) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , 
 		//new Class[] {TransactionResource.class}, new MyInvocationHandler(transactionManager, transactionCoordination));
 				

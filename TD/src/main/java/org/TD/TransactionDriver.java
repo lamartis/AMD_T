@@ -1,27 +1,36 @@
 package org.TD;
 
 import java.io.IOException;
-
-import fr.esiag.commun.AnalyseDemand;
-import fr.esiag.commun.ManageAccount;
-import fr.esiag.commun.ManageDemand;
+import java.lang.reflect.Method;
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.TransactionResource;
 import fr.esiag.commun.api.API;
+import fr.esiag.commun.interfaces.resource.ManageDemand;
 import fr.esiag.commun.tools.ProxySerialization;
 
 public class TransactionDriver {
 
-	public static void main(String[] args) throws TransactionException, ClassNotFoundException, IOException{
+	public static void main(String[] args) throws Exception {
 
 		// Create functional proxy which it believes that it contacts the resource directly. But it's not Correct.
 		// This proxy will tell the CosTransaction to treat requests Transaction driver through resource object.
 		
 		API api = new API();
-		Transaction transaction = api.createTransaction();
-		ManageDemand m = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource(api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1")));
+		TransactionResource resourceIOR = api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");
 		
+		//Method method = ManageDemand.class.getClass().getMethods();
+		for (Method string : resourceIOR.getClass().getMethods()) {
+			System.out.println(string.getName());
+		}
+		//Method m = ManageDemand.class.getDeclaredMethod("createDemand", String.class);
+		//System.out.println(m.invoke(resourceIOR, "saad"));
+		
+	/*	Transaction transaction = api.createTransaction();
+		ManageDemand    m = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource(api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1")));
+		
+		String          d = m.createDemand("accountID");
+		System.out.println(d);
 // On récupère l'objet CORBA métier, on l'associe au handler, et en retourne le proxy. 
 /*		AnalyseDemand ad = (AnalyseDemand) transaction.addResource(api.getResource("corbaloc::localhost:222/Server/TManagerPOAP/R2"));
 		ManageAccount ma = (ManageAccount) transaction.addResource(api.getResource("corbaloc::localhost:333/Server/TManagerPOAP/R3"));
