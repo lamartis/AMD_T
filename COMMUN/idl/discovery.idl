@@ -15,6 +15,8 @@ module transaction {
 		
 	typedef sequence<octet> TransactionID;
 	typedef sequence<octet> ResourceID;
+	typedef sequence<octet> ProxyStream;
+	
 	exception NotPreparedException {} ;
 	exception TransactionException {} ;
 	
@@ -33,7 +35,7 @@ module transaction {
 
 	interface Transaction {
 		TransactionCoordination getCoordinator();
-		ManageDemand addResource(in TransactionResource resource);
+		ProxyStream addResource(in TransactionResource resource);
 		void begin() raises(TransactionException);
 		void commit() raises(TransactionException);
 		void rollback() raises(TransactionException);

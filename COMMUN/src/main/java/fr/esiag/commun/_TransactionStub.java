@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "Transaction".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 16 déc. 2013 18:27:53
+ * @version generated at 18 déc. 2013 11:42:59
  */
 
 public class _TransactionStub
@@ -408,7 +408,7 @@ public class _TransactionStub
 
 	}
 
-	public org.omg.CORBA.Object addResource(fr.esiag.commun.TransactionResource resource)
+	public byte[] addResource(fr.esiag.commun.TransactionResource resource)
 	{
 		while(true)
 		{
@@ -421,7 +421,7 @@ public class _TransactionStub
 					_os = _request( "addResource", true);
 					fr.esiag.commun.TransactionResourceHelper.write(_os,resource);
 					_is = _invoke(_os);
-					org.omg.CORBA.Object _result = _is.read_Object();
+					byte[] _result = fr.esiag.commun.ProxyStreamHelper.read(_is);
 					return _result;
 				}
 				catch( org.omg.CORBA.portable.RemarshalException _rx )
@@ -463,7 +463,7 @@ public class _TransactionStub
 			if( _so == null )
 				continue;
 			TransactionOperations _localServant = (TransactionOperations)_so.servant;
-			org.omg.CORBA.Object _result;
+			byte[] _result;
 			try
 			{
 				_result = _localServant.addResource(resource);

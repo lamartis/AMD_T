@@ -1,14 +1,14 @@
 package fr.esiag.commun.resource;
 
+import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-
 import fr.esiag.commun.ManageDemand;
-import fr.esiag.commun.TransactionCoordination;
-import fr.esiag.commun.TransactionManager;
 import fr.esiag.commun.TransactionResource;
 
-public class MyInvocationHandler implements InvocationHandler {
+public class MyInvocationHandler implements InvocationHandler, Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	public TransactionResource resource = null;
 	public Object object;

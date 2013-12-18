@@ -1,13 +1,13 @@
 package fr.esiag.commun;
 
 /**
- * Generated from IDL alias "ResourceID".
+ * Generated from IDL alias "ProxyStream".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
  * @version generated at 18 déc. 2013 11:42:59
  */
 
-public abstract class ResourceIDHelper
+public abstract class ProxyStreamHelper
 {
 	private volatile static org.omg.CORBA.TypeCode _type;
 
@@ -30,11 +30,11 @@ public abstract class ResourceIDHelper
 	{
 		if (_type == null)
 		{
-			synchronized(ResourceIDHelper.class)
+			synchronized(ProxyStreamHelper.class)
 			{
 				if (_type == null)
 				{
-					_type = org.omg.CORBA.ORB.init().create_alias_tc(fr.esiag.commun.ResourceIDHelper.id(), "ResourceID",org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(10))));
+					_type = org.omg.CORBA.ORB.init().create_alias_tc(fr.esiag.commun.ProxyStreamHelper.id(), "ProxyStream",org.omg.CORBA.ORB.init().create_sequence_tc(0, org.omg.CORBA.ORB.init().get_primitive_tc(org.omg.CORBA.TCKind.from_int(10))));
 				}
 			}
 		}
@@ -43,25 +43,25 @@ public abstract class ResourceIDHelper
 
 	public static String id()
 	{
-		return "IDL:transaction/ResourceID:1.0";
+		return "IDL:transaction/ProxyStream:1.0";
 	}
 	public static byte[] read (final org.omg.CORBA.portable.InputStream _in)
 	{
 		byte[] _result;
-		int _l_result1 = _in.read_long();
+		int _l_result2 = _in.read_long();
 		try
 		{
 			 int x = _in.available();
-			 if ( x > 0 && _l_result1 > x )
+			 if ( x > 0 && _l_result2 > x )
 				{
-					throw new org.omg.CORBA.MARSHAL("Sequence length too large. Only " + x + " available and trying to assign " + _l_result1);
+					throw new org.omg.CORBA.MARSHAL("Sequence length too large. Only " + x + " available and trying to assign " + _l_result2);
 				}
 		}
 		catch (java.io.IOException e)
 		{
 		}
-		_result = new byte[_l_result1];
-		_in.read_octet_array(_result,0,_l_result1);
+		_result = new byte[_l_result2];
+		_in.read_octet_array(_result,0,_l_result2);
 		return _result;
 	}
 

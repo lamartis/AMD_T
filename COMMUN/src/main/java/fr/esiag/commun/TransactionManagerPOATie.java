@@ -6,7 +6,7 @@ import org.omg.PortableServer.POA;
  * Generated from IDL interface "TransactionManager".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 16 déc. 2013 18:27:53
+ * @version generated at 18 déc. 2013 11:42:59
  */
 
 public class TransactionManagerPOATie

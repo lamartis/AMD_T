@@ -1,5 +1,6 @@
 package fr.esiag.commun.server;
 
+import java.io.IOException;
 import java.lang.reflect.Proxy;
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ import fr.esiag.commun.TransactionPOA;
 import fr.esiag.commun.TransactionResource;
 import fr.esiag.commun.orb.ORBProvider;
 import fr.esiag.commun.resource.MyInvocationHandler;
+import fr.esiag.commun.tools.ProxySerialization;
 
 public class TransactionImp extends TransactionPOA {
 
@@ -50,7 +52,7 @@ public class TransactionImp extends TransactionPOA {
 		
 	}
 
-	public ManageDemand addResource(TransactionResource resource) {
+	public byte[] addResource(TransactionResource resource) {
 		this.getCoordinator().registerResource(resource);
 		// creation of a proxy. 
 	//	TransactionResource R1 = (TransactionResource) Proxy.newProxyInstance(TransactionResource.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler());
@@ -61,7 +63,16 @@ public class TransactionImp extends TransactionPOA {
 	//	ManageDemand manageDemand = ManageDemandHelper.narrow(orbProvider.activate(R1)); 
 		Object o = Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler());
 		
-		return (ManageDemand) o;
+		// Serialize Object before sending.
+		byte[] proxy = null;
+		try {
+			proxy = ProxySerialization.serializeFrom(o);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return proxy;
+		
 	}
 
 }

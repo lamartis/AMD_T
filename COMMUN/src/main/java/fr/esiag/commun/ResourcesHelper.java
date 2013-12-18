@@ -4,7 +4,7 @@ package fr.esiag.commun;
  * Generated from IDL alias "Resources".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 16 déc. 2013 18:27:53
+ * @version generated at 18 déc. 2013 11:42:59
  */
 
 public abstract class ResourcesHelper
@@ -48,19 +48,19 @@ public abstract class ResourcesHelper
 	public static fr.esiag.commun.TransactionResource[] read (final org.omg.CORBA.portable.InputStream _in)
 	{
 		fr.esiag.commun.TransactionResource[] _result;
-		int _l_result2 = _in.read_long();
+		int _l_result3 = _in.read_long();
 		try
 		{
 			 int x = _in.available();
-			 if ( x > 0 && _l_result2 > x )
+			 if ( x > 0 && _l_result3 > x )
 				{
-					throw new org.omg.CORBA.MARSHAL("Sequence length too large. Only " + x + " available and trying to assign " + _l_result2);
+					throw new org.omg.CORBA.MARSHAL("Sequence length too large. Only " + x + " available and trying to assign " + _l_result3);
 				}
 		}
 		catch (java.io.IOException e)
 		{
 		}
-		_result = new fr.esiag.commun.TransactionResource[_l_result2];
+		_result = new fr.esiag.commun.TransactionResource[_l_result3];
 		for (int i=0;i<_result.length;i++)
 		{
 			_result[i]=fr.esiag.commun.TransactionResourceHelper.read(_in);
