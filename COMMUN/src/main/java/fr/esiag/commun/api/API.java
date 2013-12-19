@@ -46,13 +46,13 @@ public class API {
 
 	public TransactionResource getResource(String url){
 		Object obj = orb.string_to_object(url.toString());
-		TransactionResource transactionResource = null;
+		ManageDemand transactionResource = null;
 
 		System.out.println("test de conformité");
 		if (obj._is_a("IDL:transaction/ManageDemand:1.0")){
 			transactionResource = ManageDemandHelper.narrow(obj);
 		} else {
-			transactionResource = ManageAccountHelper.narrow(obj);
+			//transactionResource = ManageAccountHelper.narrow(obj);
 		}
 
 		// Registre the resource on the TManager

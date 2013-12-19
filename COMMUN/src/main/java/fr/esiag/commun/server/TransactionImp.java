@@ -3,6 +3,7 @@ package fr.esiag.commun.server;
 import java.io.IOException;
 import java.lang.reflect.Proxy;
 import java.util.UUID;
+
 import fr.esiag.commun.ManageDemand;
 import fr.esiag.commun.TransactionCoordination;
 import fr.esiag.commun.TransactionCoordinationHelper;
@@ -47,8 +48,14 @@ public class TransactionImp extends TransactionPOA {
 	public byte[] addResource(TransactionResource resource) {
 		this.getCoordinator().registerResource(resource);
 
+		if (resource instanceof ManageDemand){
+			System.out.println("[TransactionImp] ouiiiiiiiii");
+		} else {
+			System.out.println("non");
+			System.out.println(resource.getClass().toString());
+		}
 		// creation of a proxy. 
-		Object o = Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler(resource));
+		/*	Object o = Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler(resource));
 		
 		// Serialize Object before sending.
 		byte[] proxy = null;
@@ -56,9 +63,9 @@ public class TransactionImp extends TransactionPOA {
 			proxy = ProxySerialization.serializeFrom(o);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
-		return proxy;
+		return "saad".getBytes();
 		
 	}
 

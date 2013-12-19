@@ -19,28 +19,22 @@ public class TransactionDriver {
 		// This proxy will tell the CosTransaction to treat requests Transaction driver through resource object.
 		
 		API api = new API();
-		TransactionResource resourceIOR = api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");		
-		String value = ((ManageDemand) resourceIOR).createDemand("saad");
-		System.out.println(value);
-		System.out.println("Hamdolah");
+//		TransactionResource resourceIOR = api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");		
+		//		String value = ((ManageDemand) resourceIOR).createDemand("saad");
+		//		System.out.println(value);
+		//System.out.println("Hamdolah");
+	
+		Transaction transaction = api.createTransaction();
+		ManageDemand resource = (ManageDemand) api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");
+		if (resource instanceof ManageDemand){
+			System.out.println("ouiiiiiiiii");
+			System.out.println(resource.getClass().toString());
+		}
+		transaction.addResource(resource);
+		//ManageDemand    m = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource(api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1")));
 		
-		//Method method = ManageDemandOperations.class.getDeclaredMethod("createDemand", String.class);
-		//method.invoke(resourceIOR, "saad");
-		
-		//System.out.println(resourceIOR);
-		System.out.println("OK");
-		//Method method = ManageDemand.class.getClass().getMethods();
-		//for (Method string : resourceIOR.getClass().getMethods()) {
-		//	System.out.println(string.getName());
-		//}
-		//Method m = ManageDemand.class.getDeclaredMethod("createDemand", String.class);
-		//System.out.println(m.invoke(resourceIOR, "saad"));
-		
-	/*	Transaction transaction = api.createTransaction();
-		ManageDemand    m = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource(api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1")));
-		
-		String          d = m.createDemand("accountID");
-		System.out.println(d);
+	//	String          d = m.createDemand("accountID");
+	//	System.out.println(d);
 // On récupère l'objet CORBA métier, on l'associe au handler, et en retourne le proxy. 
 /*		AnalyseDemand ad = (AnalyseDemand) transaction.addResource(api.getResource("corbaloc::localhost:222/Server/TManagerPOAP/R2"));
 		ManageAccount ma = (ManageAccount) transaction.addResource(api.getResource("corbaloc::localhost:333/Server/TManagerPOAP/R3"));
