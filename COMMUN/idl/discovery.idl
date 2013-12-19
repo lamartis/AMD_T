@@ -21,7 +21,7 @@ module transaction {
 
 	interface Transaction {
 		TransactionCoordination getCoordinator();
-		ProxyStream addResource(in TransactionResource resource);
+		ProxyStream addResource(in string resource);
 		void begin() raises(TransactionException);
 		void commit() raises(TransactionException);
 		void rollback() raises(TransactionException);

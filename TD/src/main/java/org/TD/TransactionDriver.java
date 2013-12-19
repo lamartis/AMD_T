@@ -2,6 +2,7 @@ package org.TD;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+
 import fr.esiag.commun.ManageDemand;
 import fr.esiag.commun.ManageDemandOperations;
 import fr.esiag.commun.ManageDemandPOA;
@@ -25,15 +26,18 @@ public class TransactionDriver {
 		//System.out.println("Hamdolah");
 	
 		Transaction transaction = api.createTransaction();
-		ManageDemand resource = (ManageDemand) api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");
-		
-		if (resource instanceof ManageDemand) {
+		/*	ManageDemand resource = (ManageDemand) api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");
+		if (resource instanceof ManageDemand){
 			System.out.println("ouiiiiiiiii");
 			System.out.println(resource.getClass().toString());
 		}
-		transaction.addResource(resource);
-		//ManageDemand    m = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource(api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1")));
+		transaction.addResource(resource); */
 		
+		Object o = ProxySerialization.unserializeFrom(transaction.addResource("corbaloc::localhost:111/Server/TManagerPOAP/R1"));
+		ManageDemand m = (ManageDemand) o;
+		//System.out.println("[TransactionDriver] " + m.createDemand("saad"));
+		
+		System.out.println("Hamdolah");
 	//	String          d = m.createDemand("accountID");
 	//	System.out.println(d);
 // On récupère l'objet CORBA métier, on l'associe au handler, et en retourne le proxy. 

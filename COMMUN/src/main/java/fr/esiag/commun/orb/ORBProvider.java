@@ -1,6 +1,7 @@
 package fr.esiag.commun.orb;
 
 import java.util.Properties;
+
 import org.omg.CORBA.Object;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Policy;
@@ -92,6 +93,11 @@ public class ORBProvider implements Runnable {
 			orb.run();
 		}
 
+	}
+
+
+	public Object string_to_object(String resource) {
+		return orb.string_to_object(resource);
 	}
 
 }

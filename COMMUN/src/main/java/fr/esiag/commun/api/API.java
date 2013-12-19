@@ -1,10 +1,8 @@
 package fr.esiag.commun.api;
 
 import java.net.URL;
-
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
-
 import fr.esiag.commun.ManageAccount;
 import fr.esiag.commun.ManageAccountHelper;
 import fr.esiag.commun.ManageDemand;
@@ -44,9 +42,9 @@ public class API {
 		return transaction;
 	}
 
-	public TransactionResource getResource(String url){
+/*	public TransactionResource getResource(String url){
 		Object obj = orb.string_to_object(url.toString());
-		ManageDemand transactionResource = null;
+		TransactionResource transactionResource = null;
 
 		System.out.println("test de conformité");
 		if (obj._is_a("IDL:transaction/ManageDemand:1.0")){
@@ -59,5 +57,5 @@ public class API {
 		transactionManager.registerResource(transactionResource);
 		return transactionResource;
 	}
-
+*/
 }

@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "ManageDemand".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 19 déc. 2013 13:36:17
+ * @version generated at 19 déc. 2013 20:15:19
  */
 
 public class _ManageDemandStub
@@ -32,8 +32,8 @@ public class _ManageDemandStub
 				try
 				{
 					_os = _request( "createDemand", true);
-					java.lang.String tmpResult0 = demand;
-_os.write_string( tmpResult0 );
+					java.lang.String tmpResult1 = demand;
+_os.write_string( tmpResult1 );
 					_is = _invoke(_os);
 					java.lang.String _result = _is.read_string();
 					return _result;

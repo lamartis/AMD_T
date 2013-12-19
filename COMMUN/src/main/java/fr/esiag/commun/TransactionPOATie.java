@@ -6,7 +6,7 @@ import org.omg.PortableServer.POA;
  * Generated from IDL interface "Transaction".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 19 déc. 2013 13:36:17
+ * @version generated at 19 déc. 2013 20:15:19
  */
 
 public class TransactionPOATie
@@ -67,14 +67,14 @@ _delegate.rollback();
 _delegate.commit();
 	}
 
+	public byte[] addResource(java.lang.String resource)
+	{
+		return _delegate.addResource(resource);
+	}
+
 	public fr.esiag.commun.TransactionCoordination getCoordinator()
 	{
 		return _delegate.getCoordinator();
-	}
-
-	public byte[] addResource(fr.esiag.commun.TransactionResource resource)
-	{
-		return _delegate.addResource(resource);
 	}
 
 }

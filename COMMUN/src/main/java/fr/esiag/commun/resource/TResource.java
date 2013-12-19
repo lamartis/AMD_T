@@ -11,7 +11,7 @@ public abstract class TResource extends TransactionResourcePOA {
 	
 	public TResource(String resourceName){
 		try {
-			orbProvider = ORBProvider.getInstance("111");
+			//orbProvider = ORBProvider.getInstance("111");
 			orbProvider.activate_object_with_id("R1", this);
 		} catch (Exception e){
 			e.getStackTrace();

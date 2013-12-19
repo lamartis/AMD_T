@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "ManageAccount".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 19 déc. 2013 13:36:17
+ * @version generated at 19 déc. 2013 20:15:19
  */
 
 public abstract class ManageAccountPOA
@@ -48,8 +48,8 @@ public abstract class ManageAccountPOA
 			{
 				java.lang.String _arg0=_input.read_string();
 				_out = handler.createReply();
-				java.lang.String tmpResult3 = createDemand(_arg0);
-_out.write_string( tmpResult3 );
+				java.lang.String tmpResult4 = createDemand(_arg0);
+_out.write_string( tmpResult4 );
 				break;
 			}
 			case 1: // rollback

@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "Transaction".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 19 déc. 2013 13:36:17
+ * @version generated at 19 déc. 2013 20:15:19
  */
 
 public abstract class TransactionPOA
@@ -18,8 +18,8 @@ public abstract class TransactionPOA
 		m_opsHash.put ( "begin", Integer.valueOf(0));
 		m_opsHash.put ( "rollback", Integer.valueOf(1));
 		m_opsHash.put ( "commit", Integer.valueOf(2));
-		m_opsHash.put ( "getCoordinator", Integer.valueOf(3));
-		m_opsHash.put ( "addResource", Integer.valueOf(4));
+		m_opsHash.put ( "addResource", Integer.valueOf(3));
+		m_opsHash.put ( "getCoordinator", Integer.valueOf(4));
 	}
 	private String[] ids = {"IDL:transaction/Transaction:1.0"};
 	public fr.esiag.commun.Transaction _this()
@@ -87,17 +87,17 @@ public abstract class TransactionPOA
 			}
 				break;
 			}
-			case 3: // getCoordinator
+			case 3: // addResource
+			{
+				java.lang.String _arg0=_input.read_string();
+				_out = handler.createReply();
+				fr.esiag.commun.ProxyStreamHelper.write(_out,addResource(_arg0));
+				break;
+			}
+			case 4: // getCoordinator
 			{
 				_out = handler.createReply();
 				fr.esiag.commun.TransactionCoordinationHelper.write(_out,getCoordinator());
-				break;
-			}
-			case 4: // addResource
-			{
-				fr.esiag.commun.TransactionResource _arg0=fr.esiag.commun.TransactionResourceHelper.read(_input);
-				_out = handler.createReply();
-				fr.esiag.commun.ProxyStreamHelper.write(_out,addResource(_arg0));
 				break;
 			}
 		}
