@@ -18,7 +18,8 @@ public class ORBProvider implements Runnable {
 	private Properties props;
 	private POA rootPOA;
 	private POA helloPOAPersistent;
-
+	private final static String IP = "10.2.79.56";
+	
 	private ORBProvider(String port) {
 		try {
 			props = new Properties();
@@ -64,7 +65,7 @@ public class ORBProvider implements Runnable {
 			helloPOAPersistent.activate_object_with_id(name.getBytes(), servant);
 
 			// Manually create a persistent based corbaloc.
-			String corbalocStr = "corbaloc::localhost:"
+			String corbalocStr = "corbaloc::" + IP + ":"
 					+ props.getProperty("OAPort") + "/"
 					+ props.getProperty("jacorb.implname") + "/"
 					+ helloPOAPersistent.the_name() + "/" + name;

@@ -11,14 +11,16 @@ import fr.esiag.commun.api.API;
 import fr.esiag.commun.tools.ProxySerialization;
 
 public class TransactionDriver {
-
+	
+	public final static String IP = "10.2.79.56";
+	
 	public static void main(String[] args) throws ClassNotFoundException, IOException, Exception {
 
 		API api = new API();
 		Transaction transaction = api.createTransaction();
-		ManageDemand manageDemand        = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc::localhost:111/Server/TManagerPOAP/R1"));
-		ManageAproveDemand aproveDemand  = (ManageAproveDemand) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc::localhost:112/Server/TManagerPOAP/R2"));
-		ManageAccount createAccount      = (ManageAccount) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc::localhost:113/Server/TManagerPOAP/R3"));
+		ManageDemand manageDemand        = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":111/Server/TManagerPOAP/R1"));
+		ManageAproveDemand aproveDemand  = (ManageAproveDemand) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":112/Server/TManagerPOAP/R2"));
+		ManageAccount createAccount      = (ManageAccount) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":113/Server/TManagerPOAP/R3"));
 
 		try {
 			
