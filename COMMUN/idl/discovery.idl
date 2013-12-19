@@ -1,5 +1,5 @@
 module transaction {
-		
+	
 	typedef sequence<octet> TransactionID;
 	typedef sequence<octet> ResourceID;
 	typedef sequence<octet> ProxyStream;
@@ -8,7 +8,6 @@ module transaction {
 	exception TransactionException {} ;
 	
 	interface TransactionResource {
-		Object getService();
 		void prepare() raises (NotPreparedException);
 		void commit() raises(TransactionException);
 		void rollback() raises(TransactionException);
@@ -37,5 +36,13 @@ module transaction {
 		TransactionFactory getTransactionFactory();
 	};
 
+
+	interface ManageDemand : TransactionResource {
+		string createDemand(in string demand);
+	};
 	
+	interface ManageAccount : TransactionResource {
+		string createDemand(in string demand);
+	};
+		
 };

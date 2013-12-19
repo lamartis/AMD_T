@@ -4,7 +4,7 @@ package fr.esiag.commun;
  * Generated from IDL alias "Resources".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 18 déc. 2013 17:20:03
+ * @version generated at 19 déc. 2013 13:36:17
  */
 
 public final class ResourcesHolder

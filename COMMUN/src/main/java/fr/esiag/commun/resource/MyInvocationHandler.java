@@ -6,7 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import fr.esiag.commun.TransactionResource;
-import fr.esiag.commun.interfaces.resource.ManageDemand;
 
 public class MyInvocationHandler implements InvocationHandler, Serializable {
 	

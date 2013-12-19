@@ -2,11 +2,13 @@ package org.TD;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import fr.esiag.commun.ManageDemand;
+import fr.esiag.commun.ManageDemandOperations;
+import fr.esiag.commun.ManageDemandPOA;
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.TransactionResource;
 import fr.esiag.commun.api.API;
-import fr.esiag.commun.interfaces.resource.ManageDemand;
 import fr.esiag.commun.tools.ProxySerialization;
 
 public class TransactionDriver {
@@ -17,12 +19,20 @@ public class TransactionDriver {
 		// This proxy will tell the CosTransaction to treat requests Transaction driver through resource object.
 		
 		API api = new API();
-		TransactionResource resourceIOR = api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");
+		TransactionResource resourceIOR = api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");		
+		String value = ((ManageDemand) resourceIOR).createDemand("saad");
+		System.out.println(value);
+		System.out.println("Hamdolah");
 		
+		//Method method = ManageDemandOperations.class.getDeclaredMethod("createDemand", String.class);
+		//method.invoke(resourceIOR, "saad");
+		
+		//System.out.println(resourceIOR);
+		System.out.println("OK");
 		//Method method = ManageDemand.class.getClass().getMethods();
-		for (Method string : resourceIOR.getClass().getMethods()) {
-			System.out.println(string.getName());
-		}
+		//for (Method string : resourceIOR.getClass().getMethods()) {
+		//	System.out.println(string.getName());
+		//}
 		//Method m = ManageDemand.class.getDeclaredMethod("createDemand", String.class);
 		//System.out.println(m.invoke(resourceIOR, "saad"));
 		
@@ -41,7 +51,7 @@ public class TransactionDriver {
 		String         ap = ad.approveDemand("m");
 		String          a = ma.creditAccount("ap");
 		transaction.commit();*/
-		System.out.println("Coooooooooooooooool");
+//		System.out.println("Coooooooooooooooool");
 	}
 }
 

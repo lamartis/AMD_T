@@ -1,10 +1,9 @@
 package fr.esiag.commun.resource;
 
 import fr.esiag.commun.TransactionResourcePOA;
-import fr.esiag.commun.interfaces.resource.AllMyServices;
 import fr.esiag.commun.orb.ORBProvider;
 
-public abstract class TResource extends TransactionResourcePOA implements AllMyServices {
+public abstract class TResource extends TransactionResourcePOA {
 	
 	// le nom permet d'identifier la resource lorsqu'elle s'enregistre dans le TransactionManager.
 	public String name;
