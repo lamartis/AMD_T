@@ -1,14 +1,8 @@
 package fr.esiag.commun.server;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
-
 import org.omg.CORBA.Object;
-import org.omg.PortableServer.Servant;
-
 import fr.esiag.commun.TransactionFactory;
 import fr.esiag.commun.TransactionFactoryHelper;
 import fr.esiag.commun.TransactionManagerPOA;
@@ -42,9 +36,5 @@ public class TManager extends TransactionManagerPOA {
 		System.out.println("Added new resource: [Identifiant: " + resource.getIdentifiant() + "]"); // : [Resources size= " + resources.size() + "]");
 	*/}
 
-	public TransactionResource getResource(String resourceName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

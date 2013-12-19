@@ -1,20 +1,11 @@
 package fr.esiag.commun.api;
 
-import java.net.URL;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
-import fr.esiag.commun.ManageAccount;
-import fr.esiag.commun.ManageAccountHelper;
-import fr.esiag.commun.ManageDemand;
-import fr.esiag.commun.ManageDemandHelper;
-import fr.esiag.commun.ManageDemandOperations;
-import fr.esiag.commun.ManageDemandPOA;
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionFactory;
 import fr.esiag.commun.TransactionManager;
 import fr.esiag.commun.TransactionManagerHelper;
-import fr.esiag.commun.TransactionResource;
-import fr.esiag.commun.TransactionResourceHelper;
 
 public class API {
 

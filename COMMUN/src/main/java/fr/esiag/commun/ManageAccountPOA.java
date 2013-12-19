@@ -5,7 +5,7 @@ package fr.esiag.commun;
  * Generated from IDL interface "ManageAccount".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 19 déc. 2013 20:15:19
+ * @version generated at 19 déc. 2013 22:07:02
  */
 
 public abstract class ManageAccountPOA
@@ -15,10 +15,10 @@ public abstract class ManageAccountPOA
 	static private final java.util.HashMap<String,Integer> m_opsHash = new java.util.HashMap<String,Integer>();
 	static
 	{
-		m_opsHash.put ( "createDemand", Integer.valueOf(0));
-		m_opsHash.put ( "rollback", Integer.valueOf(1));
-		m_opsHash.put ( "commit", Integer.valueOf(2));
-		m_opsHash.put ( "prepare", Integer.valueOf(3));
+		m_opsHash.put ( "rollback", Integer.valueOf(0));
+		m_opsHash.put ( "commit", Integer.valueOf(1));
+		m_opsHash.put ( "prepare", Integer.valueOf(2));
+		m_opsHash.put ( "createAccount", Integer.valueOf(3));
 	}
 	private String[] ids = {"IDL:transaction/ManageAccount:1.0","IDL:transaction/TransactionResource:1.0"};
 	public fr.esiag.commun.ManageAccount _this()
@@ -44,15 +44,7 @@ public abstract class ManageAccountPOA
 			throw new org.omg.CORBA.BAD_OPERATION(method + " not found");
 		switch ( opsIndex.intValue() )
 		{
-			case 0: // createDemand
-			{
-				java.lang.String _arg0=_input.read_string();
-				_out = handler.createReply();
-				java.lang.String tmpResult4 = createDemand(_arg0);
-_out.write_string( tmpResult4 );
-				break;
-			}
-			case 1: // rollback
+			case 0: // rollback
 			{
 			try
 			{
@@ -66,7 +58,7 @@ _out.write_string( tmpResult4 );
 			}
 				break;
 			}
-			case 2: // commit
+			case 1: // commit
 			{
 			try
 			{
@@ -80,7 +72,7 @@ _out.write_string( tmpResult4 );
 			}
 				break;
 			}
-			case 3: // prepare
+			case 2: // prepare
 			{
 			try
 			{
@@ -92,6 +84,14 @@ _out.write_string( tmpResult4 );
 				_out = handler.createExceptionReply();
 				fr.esiag.commun.NotPreparedExceptionHelper.write(_out, _ex0);
 			}
+				break;
+			}
+			case 3: // createAccount
+			{
+				java.lang.String _arg0=_input.read_string();
+				_out = handler.createReply();
+				java.lang.String tmpResult6 = createAccount(_arg0);
+_out.write_string( tmpResult6 );
 				break;
 			}
 		}

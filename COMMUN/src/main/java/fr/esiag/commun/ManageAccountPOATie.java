@@ -6,7 +6,7 @@ import org.omg.PortableServer.POA;
  * Generated from IDL interface "ManageAccount".
  *
  * @author JacORB IDL compiler V 3.2, 07-Dec-2012
- * @version generated at 19 déc. 2013 20:15:19
+ * @version generated at 19 déc. 2013 22:07:02
  */
 
 public class ManageAccountPOATie
@@ -52,11 +52,6 @@ public class ManageAccountPOATie
 		}
 		return super._default_POA();
 	}
-	public java.lang.String createDemand(java.lang.String demand)
-	{
-		return _delegate.createDemand(demand);
-	}
-
 	public void rollback() throws fr.esiag.commun.TransactionException
 	{
 _delegate.rollback();
@@ -70,6 +65,11 @@ _delegate.commit();
 	public void prepare() throws fr.esiag.commun.NotPreparedException
 	{
 _delegate.prepare();
+	}
+
+	public java.lang.String createAccount(java.lang.String demand)
+	{
+		return _delegate.createAccount(demand);
 	}
 
 }

@@ -35,14 +35,5 @@ module transaction {
 		void registerResource(in TransactionResource resource );
 		TransactionFactory getTransactionFactory();
 	};
-
-
-	interface ManageDemand : TransactionResource {
-		string createDemand(in string demand);
-	};
-	
-	interface ManageAccount : TransactionResource {
-		string createDemand(in string demand);
-	};
 		
 };

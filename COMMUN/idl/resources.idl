@@ -1,0 +1,15 @@
+#include <discovery.idl>
+
+module resources {	
+	interface ManageDemand : TransactionResource {
+		string createDemand(in string demand);
+	};
+	
+	interface ManageAproveDemand : TransactionResource {
+		string aproveDemand(in string demand);
+	};
+	
+	interface ManageAccount : TransactionResource {
+		string createDemand(in string demand);
+	};
+}
