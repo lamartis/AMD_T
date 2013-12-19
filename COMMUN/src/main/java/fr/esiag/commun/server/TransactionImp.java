@@ -51,13 +51,13 @@ public class TransactionImp extends TransactionPOA {
 		if (resource instanceof ManageDemand){
 			System.out.println("[TransactionImp] ouiiiiiiiii");
 		} else {
-			System.out.println("non");
+			System.out.println("[TransactionImp] non");
 			System.out.println(resource.getClass().toString());
 		}
 		// creation of a proxy. 
-		/*	Object o = Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler(resource));
+			Object o = Proxy.newProxyInstance(ManageDemand.class.getClassLoader() , new Class[] {ManageDemand.class}, new MyInvocationHandler(resource));
 		
-		// Serialize Object before sending.
+	/*	// Serialize Object before sending.
 		byte[] proxy = null;
 		try {
 			proxy = ProxySerialization.serializeFrom(o);
@@ -65,8 +65,7 @@ public class TransactionImp extends TransactionPOA {
 			e.printStackTrace();
 		}*/
 		
-		return "saad".getBytes();
-		
+		return "saad".getBytes();		
 	}
 
 }

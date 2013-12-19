@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
+import fr.esiag.commun.ManageDemand;
 import fr.esiag.commun.TransactionResource;
 
 public class MyInvocationHandler implements InvocationHandler, Serializable {
@@ -14,6 +14,12 @@ public class MyInvocationHandler implements InvocationHandler, Serializable {
 	
 	public MyInvocationHandler(TransactionResource resource) {
 		this.resource = resource;
+		if (resource instanceof ManageDemand){
+			System.out.println("[MyInvocationHandler] ouiiiiiiiii");
+		} else {
+			System.out.println("[MyInvocationHandler] non");
+			System.out.println(resource.getClass().toString());
+		}
 	}
 
 	public Object invoke(Object proxy, Method m, Object[] args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{

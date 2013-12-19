@@ -26,7 +26,8 @@ public class TransactionDriver {
 	
 		Transaction transaction = api.createTransaction();
 		ManageDemand resource = (ManageDemand) api.getResource("corbaloc::localhost:111/Server/TManagerPOAP/R1");
-		if (resource instanceof ManageDemand){
+		
+		if (resource instanceof ManageDemand) {
 			System.out.println("ouiiiiiiiii");
 			System.out.println(resource.getClass().toString());
 		}
