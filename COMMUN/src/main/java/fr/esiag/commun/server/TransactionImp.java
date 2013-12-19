@@ -54,18 +54,15 @@ public class TransactionImp extends TransactionPOA {
 		ORB orb = ORB.init( new String[]{}, null );
 		Object obj = orb.string_to_object(resource);
 		System.out.println(obj);
-		ManageDemand transactionResource = null;
-
-		transactionResource = ManageDemandHelper.narrow(obj);
-
-		/*		System.out.println("test de conformité");
+		TransactionResource transactionResource = TransactionResourceHelper.narrow(obj);
+		this.getCoordinator().registerResource(transactionResource);
+		
+		System.out.println("test de conformité");
 		if (obj._is_a("IDL:transaction/ManageDemand:1.0")){
 			transactionResource = ManageDemandHelper.narrow(obj);
 		} else {
 			//transactionResource = ManageAccountHelper.narrow(obj);
-		} */
-
-		this.getCoordinator().registerResource(TransactionResourceHelper.narrow(transactionResource));
+		} 
 
 		if (transactionResource instanceof ManageDemand){
 			System.out.println("[TransactionImp] ouiiiiiiiii");

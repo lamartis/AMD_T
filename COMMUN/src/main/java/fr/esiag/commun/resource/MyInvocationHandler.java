@@ -10,10 +10,10 @@ import fr.esiag.commun.TransactionResource;
 public class MyInvocationHandler implements InvocationHandler, Serializable {
 
 	public static final long serialVersionUID = 1L;
-	public ManageDemand resource = null;
+	public TransactionResource resource = null;
 
 	public MyInvocationHandler(TransactionResource res) {
-		this.resource = (ManageDemand) res;
+		this.resource =  res;
 		if (resource instanceof ManageDemand){
 			System.out.println("[MyInvocationHandler] ouiiiiiiiii");
 		} else {
