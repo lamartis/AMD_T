@@ -1,15 +1,15 @@
 #include <discovery.idl>
 
 module resources {	
-	interface ManageDemand : TransactionResource {
-		string createDemand(in string demand);
+	interface FrontTemperature : TransactionResource {
+		double calculFrontTemperature(in double altitude , in double speed);
 	};
 	
-	interface ManageAproveDemand : TransactionResource {
-		string aproveDemand(in string demand);
+	interface MediumTemperature : TransactionResource {
+		double calculMediumTemperature(in double ft);
 	};
 	
-	interface ManageAccount : TransactionResource {
-		string createDemand(in string demand);
+	interface GlobalSensor : TransactionResource {
+		double calculGlobalTempareature(in double mt);
 	};
 }
