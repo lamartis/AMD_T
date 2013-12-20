@@ -1,11 +1,13 @@
 package org.Resource2;
 
-import fr.esiag.commun.ManageAproveDemandPOA;
+import fr.esiag.commun.MediumTemperaturePOA;
 import fr.esiag.commun.NotPreparedException;
 import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.orb.ORBProvider;
 
-public class Resource2 extends ManageAproveDemandPOA {
+public class Resource2 extends MediumTemperaturePOA {
+	
+	double mediumValue;
 	
 	ORBProvider orbProvider = null;
 	boolean isUsed = false;
@@ -53,8 +55,14 @@ public class Resource2 extends ManageAproveDemandPOA {
 		new Resource2("R2");
 	}
 
-	public String aproveDemand(String demand) {
-		return demand;
+	public double calculMediumTemperature(double ft) {
+		mediumValue =  (10*Math.random()+ft)/2;
+		return this.getValue();
 	}
+
+	public double getValue() {
+		return this.mediumValue;
+	}
+	
 
 }

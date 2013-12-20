@@ -5,9 +5,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import fr.esiag.commun.ManageAccount;
-import fr.esiag.commun.ManageAproveDemand;
-import fr.esiag.commun.ManageDemand;
+import fr.esiag.commun.FrontTemperature;
+import fr.esiag.commun.GlobalSensor;
+import fr.esiag.commun.MediumTemperature;
 import fr.esiag.commun.TransactionResource;
 
 public class MyInvocationHandler implements InvocationHandler, Serializable {
@@ -18,27 +18,27 @@ public class MyInvocationHandler implements InvocationHandler, Serializable {
 	public MyInvocationHandler(TransactionResource res) {
 		this.resource =  res;
 		
-		if (resource instanceof ManageDemand){
-			System.out.println("[MyInvocationHandler] resource is instanceof ManageDemand");
-		} else if (resource instanceof ManageAproveDemand){
-			System.out.println("[MyInvocationHandler] resource is instanceof ManageAproveDemand");
-		} else if (resource instanceof ManageAccount){
-			System.out.println("[MyInvocationHandler] resource is instanceof ManageAccount");
+		if (resource instanceof FrontTemperature){
+			System.out.println("[MyInvocationHandler] resource is instanceof FrontTemperature");
+		} else if (resource instanceof MediumTemperature){
+			System.out.println("[MyInvocationHandler] resource is instanceof MediumTemperature");
+		} else if (resource instanceof GlobalSensor){
+			System.out.println("[MyInvocationHandler] resource is instanceof GlobalSensor");
 		}
 	}
 
 	public Object invoke(Object proxy, Method m, Object[] args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-		String value = null;
+		double value = 0;
 		System.out.println("Generic Logger Entry: Invoking " + m.getName());
-		if (m.getName().startsWith("createDemand")){
-			//value = (String) m.invoke((ManageDemand) resource, args);
-			value = "s";
-		} else if (m.getName().startsWith("aproveDemand")){
-			//value = (String) m.invoke((ManageDemand) resource, args);
-			value = "aa";
-		} else if (m.getName().startsWith("createAccount")){
-			//value = (String) m.invoke((ManageDemand) resource, args);
-			value = "sss";
+		if (m.getName().startsWith("calculFrontTemperature")){
+			//value = (Double) m.invoke((FrontTemperature) resource, args);
+			value = 12;
+		} else if (m.getName().startsWith("calculMediumTemperature")){
+			//value = (Double) m.invoke((MediumTemperature) resource, args);
+			value = 11;
+		} else if (m.getName().startsWith("calculGlobalTempareature")){
+			//value = (Double) m.invoke((GlobalSensor) resource, args);
+			value = 20.3;
 		}
 		return value;
 	}

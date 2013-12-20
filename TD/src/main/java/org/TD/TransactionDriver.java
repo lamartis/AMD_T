@@ -2,9 +2,9 @@ package org.TD;
 
 import java.io.IOException;
 
-import fr.esiag.commun.ManageAccount;
-import fr.esiag.commun.ManageAproveDemand;
-import fr.esiag.commun.ManageDemand;
+import fr.esiag.commun.FrontTemperature;
+import fr.esiag.commun.GlobalSensor;
+import fr.esiag.commun.MediumTemperature;
 import fr.esiag.commun.Transaction;
 import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.api.API;
@@ -18,16 +18,16 @@ public class TransactionDriver {
 
 		API api = new API();
 		Transaction transaction = api.createTransaction();
-		ManageDemand manageDemand        = (ManageDemand) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":111/Server/TManagerPOAP/R1"));
-		ManageAproveDemand aproveDemand  = (ManageAproveDemand) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":112/Server/TManagerPOAP/R2"));
-		ManageAccount createAccount      = (ManageAccount) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":113/Server/TManagerPOAP/R3"));
+		FrontTemperature frontTemperature        = (FrontTemperature) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":111/Server/TManagerPOAP/R1"));
+		MediumTemperature mediumTemperature  = (MediumTemperature) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":112/Server/TManagerPOAP/R2"));
+		GlobalSensor globalSensor      = (GlobalSensor) ProxySerialization.unserializeFrom(transaction.addResource("corbaloc:iiop:1.2@"+IP+":113/Server/TManagerPOAP/R3"));
 
 		try {
 			
 			transaction.begin();
-			String          d = manageDemand.createDemand("s"); 
-			String         ap = aproveDemand.aproveDemand(d);
-			String          a = createAccount.createAccount(ap);
+			double              d = frontTemperature.calculFrontTemperature(10, 20); 
+			double             ap = mediumTemperature.calculMediumTemperature(d);
+			double              a = globalSensor.calculGlobalTempareature(ap);
 			transaction.commit();
 			System.out.println("----------------> " + a);
 			

@@ -2,14 +2,16 @@ package fr.esiag.commun.server;
 
 import java.lang.reflect.Proxy;
 import java.util.UUID;
+
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.Object;
-import fr.esiag.commun.ManageAccount;
-import fr.esiag.commun.ManageAccountHelper;
-import fr.esiag.commun.ManageAproveDemand;
-import fr.esiag.commun.ManageAproveDemandHelper;
-import fr.esiag.commun.ManageDemand;
-import fr.esiag.commun.ManageDemandHelper;
+
+import fr.esiag.commun.FrontTemperature;
+import fr.esiag.commun.FrontTemperatureHelper;
+import fr.esiag.commun.GlobalSensor;
+import fr.esiag.commun.GlobalSensorHelper;
+import fr.esiag.commun.MediumTemperature;
+import fr.esiag.commun.MediumTemperatureHelper;
 import fr.esiag.commun.NotPreparedException;
 import fr.esiag.commun.TransactionCoordination;
 import fr.esiag.commun.TransactionCoordinationHelper;
@@ -83,20 +85,20 @@ public class TransactionImp extends TransactionPOA {
 
 		System.out.println("test de conformité");
 		if (obj._is_a("IDL:transaction/ManageDemand:1.0")){
-			transactionResource = ManageDemandHelper.narrow(obj);
+			transactionResource = FrontTemperatureHelper.narrow(obj);
 			System.out.println("[TransactionImp] the resource is instance of ManageDemand");
 		} else if (obj._is_a("IDL:transaction/ManageAproveDemand:1.0")){
-			transactionResource = ManageAproveDemandHelper.narrow(obj);
+			transactionResource = MediumTemperatureHelper.narrow(obj);
 			System.out.println("[TransactionImp] the resource is instance of ManageAproveDemand");
 		} else if (obj._is_a("IDL:transaction/ManageAccount:1.0")) {
-			transactionResource = ManageAccountHelper.narrow(obj);
+			transactionResource = GlobalSensorHelper.narrow(obj);
 			System.out.println("[TransactionImp] the resource is instance of ManageAccount");
 		} else {
 			System.out.println("the resource is not identified");
 		}
 
 		// creation of a proxy. 
-		java.lang.Object o = Proxy.newProxyInstance(TransactionImp.class.getClassLoader() , new Class[] {ManageDemand.class, ManageAproveDemand.class, ManageAccount.class}, new MyInvocationHandler(transactionResource));
+		java.lang.Object o = Proxy.newProxyInstance(TransactionImp.class.getClassLoader() , new Class[] {FrontTemperature.class, MediumTemperature.class, GlobalSensor.class}, new MyInvocationHandler(transactionResource));
 
 		// Serialize Object before sending.
 		byte[] proxy = null;

@@ -1,11 +1,13 @@
 package org.Resource3;
 
-import fr.esiag.commun.ManageAccountPOA;
+import fr.esiag.commun.GlobalSensorPOA;
 import fr.esiag.commun.NotPreparedException;
 import fr.esiag.commun.TransactionException;
 import fr.esiag.commun.orb.ORBProvider;
 
-public class Resource3 extends ManageAccountPOA {
+public class Resource3 extends GlobalSensorPOA {
+	
+	double globalValue;
 	
 	ORBProvider orbProvider = null;
 	boolean isUsed = false;
@@ -53,8 +55,13 @@ public class Resource3 extends ManageAccountPOA {
 		new Resource3("R3");
 	}
 
-	public String createAccount(String demand) {
-		return demand;
+	public double calculGlobalTempareature(double mt) {
+		globalValue = (10*Math.random()+mt);
+		return this.getValue();
+	}
+
+	public double getValue() {
+		return this.globalValue;
 	}
 
 }
