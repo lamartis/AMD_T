@@ -84,13 +84,13 @@ public class TransactionImp extends TransactionPOA {
 		this.getCoordinator().registerResource(transactionResource);
 
 		System.out.println("test de conformité");
-		if (obj._is_a("IDL:transaction/ManageDemand:1.0")){
+		if (obj._is_a("IDL:transaction/FrontTemperature:1.0")){
 			transactionResource = FrontTemperatureHelper.narrow(obj);
 			System.out.println("[TransactionImp] the resource is instance of ManageDemand");
-		} else if (obj._is_a("IDL:transaction/ManageAproveDemand:1.0")){
+		} else if (obj._is_a("IDL:transaction/MediumTemperature:1.0")){
 			transactionResource = MediumTemperatureHelper.narrow(obj);
 			System.out.println("[TransactionImp] the resource is instance of ManageAproveDemand");
-		} else if (obj._is_a("IDL:transaction/ManageAccount:1.0")) {
+		} else if (obj._is_a("IDL:transaction/GlobalSensor:1.0")) {
 			transactionResource = GlobalSensorHelper.narrow(obj);
 			System.out.println("[TransactionImp] the resource is instance of ManageAccount");
 		} else {
